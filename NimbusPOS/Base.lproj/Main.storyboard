@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fbv-23-8TX">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View-->
+        <scene sceneID="9VO-hW-oOZ">
+            <objects>
+                <viewController id="Fbv-23-8TX" customClass="LoginView" customModule="NimbusPOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mZf-V1-mt5"/>
+                        <viewControllerLayoutGuide type="bottom" id="YMy-Ma-3I4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jow-fa-nZT">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pG5-6f-F8g">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NimbusPOS_Storefront_logo" translatesAutoresizingMaskIntoConstraints="NO" id="z8H-0S-LTu" userLabel="logo">
+                                        <rect key="frame" x="412" y="284" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="Oqf-3p-9sL"/>
+                                            <constraint firstAttribute="width" constant="200" id="oBI-Q9-yZo"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.30980392159999998" green="0.76470588240000004" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="z8H-0S-LTu" firstAttribute="centerY" secondItem="pG5-6f-F8g" secondAttribute="centerY" id="8H1-sH-hLP"/>
+                                    <constraint firstItem="z8H-0S-LTu" firstAttribute="centerX" secondItem="pG5-6f-F8g" secondAttribute="centerX" id="Ah3-Xg-fH5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30980392159999998" green="0.76470588240000004" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pG5-6f-F8g" firstAttribute="leading" secondItem="jow-fa-nZT" secondAttribute="leading" id="34c-RE-F38"/>
+                            <constraint firstItem="pG5-6f-F8g" firstAttribute="top" secondItem="jow-fa-nZT" secondAttribute="top" id="GG8-7a-dWf"/>
+                            <constraint firstAttribute="trailing" secondItem="pG5-6f-F8g" secondAttribute="trailing" id="HrD-HE-Dar"/>
+                            <constraint firstItem="YMy-Ma-3I4" firstAttribute="top" secondItem="pG5-6f-F8g" secondAttribute="bottom" id="wGY-rx-Ko8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logo_y" destination="8H1-sH-hLP" id="OL0-M2-rsQ"/>
+                        <segue destination="q0i-Bd-aMX" kind="show" identifier="segueID_LoginToDataLoading" id="jEe-dZ-oSy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPJ-nO-YJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2208" y="648"/>
+        </scene>
+        <!--Data Loading View-->
+        <scene sceneID="rZb-7p-yhf">
+            <objects>
+                <viewController id="q0i-Bd-aMX" customClass="DataLoadingView" customModule="NimbusPOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tpv-20-8R0"/>
+                        <viewControllerLayoutGuide type="bottom" id="5f6-W2-rjG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vdM-xd-LPm">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.30980392159999998" green="0.76470588240000004" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="FaG-Vx-csb" kind="show" identifier="segueID_masterNavigation" id="OPi-EU-14J"/>
+                        <segue destination="d3c-id-lbq" kind="presentation" identifier="segueToLocationSelector" modalPresentationStyle="formSheet" id="aeS-Bf-Lpd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qe-ID-fBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1143" y="648"/>
+        </scene>
+        <!--LocationSelector-->
+        <scene sceneID="SoY-u2-eXq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Locations" referencedIdentifier="LocationSelector" id="d3c-id-lbq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Erb-9I-g3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1142" y="1183"/>
+        </scene>
+        <!--Master View Controller-->
+        <scene sceneID="i6M-n5-DIS">
+            <objects>
+                <viewController id="FaG-Vx-csb" customClass="MasterViewController" customModule="NimbusPOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yMm-iY-a3U"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oeb-2e-9L9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CN9-5o-oCi">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCF-jw-dfA" userLabel="Status Bar">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="20"/>
+                                <color key="backgroundColor" red="0.30980392159999998" green="0.76470588240000004" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="A1R-NS-mx3"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgy-JX-D9I" customClass="mainHomeButton" customModule="NimbusPOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.2669871432" green="0.80497204860000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="bcl-Zc-SmO"/>
+                                    <constraint firstAttribute="height" constant="50" id="fM0-DT-dYP"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="openMenu:" destination="FaG-Vx-csb" eventType="touchUpInside" id="ZRc-Ix-a27"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WCF-jw-dfA" secondAttribute="trailing" id="4bv-F9-WIH"/>
+                            <constraint firstItem="WCF-jw-dfA" firstAttribute="leading" secondItem="CN9-5o-oCi" secondAttribute="leading" id="5Vz-hu-SMy"/>
+                            <constraint firstItem="fgy-JX-D9I" firstAttribute="top" secondItem="yMm-iY-a3U" secondAttribute="bottom" id="GQg-PS-Cnb"/>
+                            <constraint firstItem="fgy-JX-D9I" firstAttribute="leading" secondItem="CN9-5o-oCi" secondAttribute="leading" id="NES-lQ-dic"/>
+                            <constraint firstItem="WCF-jw-dfA" firstAttribute="width" secondItem="CN9-5o-oCi" secondAttribute="width" id="WnM-UT-2rq"/>
+                            <constraint firstItem="WCF-jw-dfA" firstAttribute="top" secondItem="yMm-iY-a3U" secondAttribute="bottom" constant="-20" id="qOI-xK-BDX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homeButton" destination="fgy-JX-D9I" id="YIt-wV-nKL"/>
+                        <outlet property="statusBar" destination="WCF-jw-dfA" id="rY0-z4-YVw"/>
+                        <segue destination="Fbv-23-8TX" kind="show" identifier="segueToStartOfApp" id="ZMH-UV-8j5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Maa-Rk-Ohc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1.7578124999999998" y="647.65625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NimbusPOS_Storefront_logo" width="541" height="531"/>
+    </resources>
+</document>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Business" representedClassName="Business" syncable="YES" codeGenerationType="class">
+        <attribute name="billingStripeCustomerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="configurationAdminPin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="configurationAllowPOSAddOnCreation" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="configurationAutoEnrollNewDevice" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="configurationDisableEmployeeTimeAdjust" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="configurationEmailHoursReminder" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="configurationEnableWaiterPinLock" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="configurationTrackTips" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payrollFrequencyType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payrollReferenceStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="configurationSizes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Business_SetProductSizes" inverseName="business" inverseEntity="Business_SetProductSizes" syncable="YES"/>
+    </entity>
+    <entity name="Business_SetProductSizes" representedClassName="Business_SetProductSizes" parentEntity="Business" syncable="YES" codeGenerationType="class">
+        <attribute name="available" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="preferred" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="business" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Business" inverseName="configurationSizes" inverseEntity="Business" syncable="YES"/>
+    </entity>
+    <entity name="Customer" representedClassName="Customer" syncable="YES" codeGenerationType="class">
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="class">
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rate" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="EmployeeHours" representedClassName="EmployeeHours" syncable="YES" codeGenerationType="class">
+        <attribute name="actualClockIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="actualClockOut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="actualHours" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="employeeId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plannedClockIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="plannedClockOut" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="plannedHours" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="addressCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressCountry" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressPin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressStreet" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receiptMessage" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LoyaltyCard" representedClassName="LoyaltyCard" syncable="YES" codeGenerationType="class">
+        <attribute name="boughtOn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creditPercent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="customerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expired" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="programId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="programType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remainingAmount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="remainingQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tally" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updatedOn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="LoyaltyProgram" representedClassName="LoyaltyProgram" syncable="YES" codeGenerationType="class">
+        <attribute name="appliesTo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categories" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="expiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="expiryDays" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="programCreditAmount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="programCreditPercent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="programQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="programTally" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="programType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taxRule" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LoyaltyProgramProducts" inverseName="loyaltyProgram" inverseEntity="LoyaltyProgramProducts" syncable="YES"/>
+    </entity>
+    <entity name="LoyaltyProgramProducts" representedClassName="LoyaltyProgramProducts" syncable="YES" codeGenerationType="class">
+        <attribute name="productId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sizeCodes" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <relationship name="loyaltyProgram" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LoyaltyProgram" inverseName="products" inverseEntity="LoyaltyProgram" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="customerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visibleToBusinessWide" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="visibleToCustomerSpecific" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="visibleToLocationSpecific" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="visibleToOrderSpecific" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="visibleToUserSpecific" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="ObjectChangeLog" representedClassName="ObjectChangeLog" syncable="YES" codeGenerationType="class">
+        <attribute name="collectionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectChangeType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedOn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="Order" representedClassName=".Order" syncable="YES" codeGenerationType="class">
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="createdBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="customerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dailyOrderNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoBuzzerNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoInstructions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoOrderName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoOrderPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoOrderType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoPostalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoStreet" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoStreetNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderInfoUnitNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderPricingAdjustments" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderPricingDiscount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderPricingSubtotal" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderPricingTax" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderPricingTaxComponentGST" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderPricingTaxComponentHST" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderPricingTaxComponentPST" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderPricingTotal" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="originalOrderId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paymentAmount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paymentCashGiven" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paymentChange" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paymentGiftCards" optional="YES" attributeType="Transformable" customClassName="[[String: Any]]" syncable="YES"/>
+        <attribute name="paymentGiftCardTotal" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paymentMethod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paymentQuantityCards" optional="YES" attributeType="Transformable" customClassName="[[String: Any]]" syncable="YES"/>
+        <attribute name="paymentReceived" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paymentRounding" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paymentTips" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="splitOrders" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tableId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeBucketDay" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeBucketHour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeBucketMonth" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeBucketYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uniqueOrderNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="updatedBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="waiterId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OrderItems" inverseName="order" inverseEntity="OrderItems" syncable="YES"/>
+    </entity>
+    <entity name="OrderGiftCardRedemptions" representedClassName="OrderGiftCardRedemptions" syncable="YES" codeGenerationType="class">
+        <attribute name="cardId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="programId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="redeemedAmount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="OrderItemAddOns" representedClassName="OrderItemAddOns" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemNumber" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="orderItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OrderItems" inverseName="addOns" inverseEntity="OrderItems" syncable="YES"/>
+    </entity>
+    <entity name="OrderItems" representedClassName="OrderItems" syncable="YES" codeGenerationType="class">
+        <attribute name="isManualRedeem" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isRedeemItem" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemNumber" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="orderId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderProductId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderProductName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderProductSizes" optional="YES" attributeType="Transformable" customClassName="[[String: Any]]" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="redeemed" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="seatNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sentToKitchen" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Transformable" customClassName="[String: Any]" syncable="YES"/>
+        <attribute name="taxRule" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unitBasedPrice" optional="YES" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unitBasedPriceQuantity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unitLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unitPrice" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="variablePrice" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="addOns" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OrderItemAddOns" inverseName="orderItem" inverseEntity="OrderItemAddOns" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="items" inverseEntity="Order" syncable="YES"/>
+    </entity>
+    <entity name="OrderQuantityCardRedemptions" representedClassName="OrderQuantityCardRedemptions" syncable="YES" codeGenerationType="class">
+        <attribute name="cardId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="programId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="redeemedQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Printer" representedClassName="Printer" syncable="YES" codeGenerationType="class">
+        <attribute name="connectionType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="function" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ipAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="macAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="printerModel" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
+        <attribute name="addOns" optional="YES" attributeType="Transformable" customClassName="NSArray" syncable="YES"/>
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categories" optional="YES" attributeType="Transformable" customClassName="NSArray" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="isUnitBasedPrice" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isVariablePrice" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="locations" optional="YES" attributeType="Transformable" customClassName="NSArray" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secondaryCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortPosition" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taxRule" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unitLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="sizes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Product_Sizes" inverseName="product" inverseEntity="Product_Sizes" syncable="YES"/>
+        <fetchIndex name="byIdIndex">
+            <fetchIndexElement property="id" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="Product_Sizes" representedClassName="Product_Sizes" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sortPosition" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="product" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="sizes" inverseEntity="Product" syncable="YES"/>
+    </entity>
+    <entity name="ProductAddOn" representedClassName="ProductAddOn" syncable="YES" codeGenerationType="class">
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categories" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="createdBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSubstitution" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="updatedBy" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProductCategory" representedClassName="ProductCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortPosition" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <fetchIndex name="byIdIndex">
+            <fetchIndexElement property="id" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byNameIndex">
+            <fetchIndexElement property="name" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="Table" representedClassName="Table" syncable="YES" codeGenerationType="class">
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="defaultSeats" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orders" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="positionX" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="positionY" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="positionZ" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="seats" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shape" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tableLabel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="waiter" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Business" positionX="-9360" positionY="-8595" width="128" height="270"/>
+        <element name="Business_SetProductSizes" positionX="-9351" positionY="-8586" width="128" height="135"/>
+        <element name="Customer" positionX="-9351" positionY="-8586" width="128" height="135"/>
+        <element name="Employee" positionX="-9324" positionY="-8559" width="128" height="165"/>
+        <element name="EmployeeHours" positionX="-9315" positionY="-8550" width="128" height="195"/>
+        <element name="Location" positionX="-9351" positionY="-8586" width="128" height="180"/>
+        <element name="LoyaltyCard" positionX="-9351" positionY="-8586" width="128" height="225"/>
+        <element name="LoyaltyProgram" positionX="-9342" positionY="-8577" width="128" height="285"/>
+        <element name="LoyaltyProgramProducts" positionX="-9333" positionY="-8568" width="128" height="90"/>
+        <element name="Note" positionX="-9351" positionY="-8586" width="128" height="270"/>
+        <element name="ObjectChangeLog" positionX="-9351" positionY="-8586" width="128" height="105"/>
+        <element name="Order" positionX="-9351" positionY="-8586" width="128" height="765"/>
+        <element name="OrderGiftCardRedemptions" positionX="-9324" positionY="-8559" width="128" height="90"/>
+        <element name="OrderItemAddOns" positionX="-9333" positionY="-8568" width="128" height="135"/>
+        <element name="OrderItems" positionX="-9342" positionY="-8577" width="128" height="375"/>
+        <element name="OrderQuantityCardRedemptions" positionX="-9315" positionY="-8550" width="128" height="90"/>
+        <element name="Printer" positionX="-9351" positionY="-8586" width="128" height="165"/>
+        <element name="Product" positionX="-9558" positionY="-8703" width="128" height="330"/>
+        <element name="Product_Sizes" positionX="-9351" positionY="-8739" width="128" height="120"/>
+        <element name="ProductAddOn" positionX="-9360" positionY="-8595" width="128" height="210"/>
+        <element name="ProductCategory" positionX="-8919" positionY="-8541" width="128" height="150"/>
+        <element name="Table" positionX="-9306" positionY="-8541" width="128" height="240"/>
+    </elements>
+</model>
